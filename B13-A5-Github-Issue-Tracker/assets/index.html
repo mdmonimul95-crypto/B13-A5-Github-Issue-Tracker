@@ -1,11 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    hello world
-</body>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-clifford: #da373d;
+      }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"   rel="stylesheet">
+     <link rel="stylesheet" href="./style.css">
+  </head>
+  <body class="bg-[#f8fafcFF] ">
+    <main id="mainbox" class=" flex justify-center items-center m-10">
+      <div class="bg-white w-[520px]  rounded-[8px] gap-[24px] p-[32px] ">
+         <div class="flex flex-col justify-center items-center mb-5 ">
+         <div class="mb-[24px]">
+            <img src="./github-logo.png">
+         </div>
+         
+         <div class="mb-[4px] text-[24px] font-semibold">
+           GitHub Issues Tracker
+         </div>
+         <span class="text-[#64748bFF] text-[16px] font-normal">
+           Sign in to manage your issues
+         </span>
+         </div>
+         <div class=" mb-5">
+         <label class="block text-black mb-1 font-medium text-[16px]">Username</label>
+         <input
+          id="username"
+         type="text" 
+         placeholder="Enter Username"
+         class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-100 mb-1"
+         >
+        <p class="text-[#4a00ffFF] text-sm mt-1">Default: admin</p>
+         </div>
+         
+         <div class=" mb-5">
+        <label class="block text-black mb-1 font-medium text-[16px]">Password</label>
+        <input 
+         id="password"
+         type="text" 
+         placeholder="Enter Password"
+         class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-100 mb-1"
+        >
+       <p class="text-[#4a00ffFF] text-sm mt-1">Default: admin123</p>
+         </div>
+         <button id="loginForm" class=" mb-5 bg-[#4a00ffFF] w-full border rounded-md text-white p-[16px]">
+             Sign In
+         </button>
+         
+         <div class="flex items-center my-4">
+           <div class="flex-grow border-t  border-blue-400"></div>
+           <span class="mx-3 text-gray-600 font-medium">OR</span>
+           <div class="flex-grow border-t  border-blue-400"></div>
+         </div>
+         <div class="text-center">
+          <p class="text-black mb-2">Demo Credentials:</p>
+           <div class="bg-gray-200  rounded-md p-5">
+            <p class="font-semibold">Username: <span class="font-normal">admin</span></p>
+            <p class="font-semibold">Password: <span class="font-normal">admin123</span></p>
+           </div>
+         </div>
+      
+      </div>
+    </main>
+    <section id="dashboard" class="hidden">
+        <nav>
+          <h1>ok babu</h1>
+        </nav>
+         
+        
+    </section>
+
+    <script>
+      
+      document.getElementById("loginForm").addEventListener("click", function(e){
+
+     e.preventDefault();
+
+     const username = document.getElementById("username").value;
+     const password = document.getElementById("password").value;
+     
+
+     if(username === "admin" && password === "admin123"){
+        document.getElementById("mainbox").classList.add("hidden");
+        document.getElementById("dashboard").classList.remove("hidden");
+     }else{
+        alert("Wrong Username or Password");
+     }
+
+     });
+
+    </script>
+  </body>
 </html>
