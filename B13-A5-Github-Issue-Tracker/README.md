@@ -1,4 +1,31 @@
 # 🌟 Welcome To (সহজ সরল সিম্পল) Assignment - 5
+<div class="bg-white w-[257px] p-[16px] shadow-md">
+                <div class="flex justify-between items-center mb-3">
+                  <img src="./Open-Status.png" alt="open-status">
+                  <div class="bg-[#feececFF] p-1 pl-4  pr-4 rounded-2xl">
+                      High
+                  </div>
+                </div>
+                <div class="">
+                  <p class="font-semibold mb-2 text-[14px]">Fix navigation menu on mobile devices</p>
+                  <span class="font-normal mb-2 text-[12px]">The navigation menu doesn't collapse properly on mobile devices...</span>
+                
+                  <div class="flex gap-2 mt-3 ">
+                   <img src="./Labels.png" alt="labels">
+                   <img src="./Labels (1).png" alt="labels1">
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <p>#1 by john_doe</p>
+                  <p>1/15/2024</p>
+                </div>
+
+              </div>
+               if(document.getElementById(priority).innerText == "medium"){
+                   document.getElementById("priority").classList.remove("bg-[#feececFF]");
+                    document.getElementById("dashboard").classList.add("bg-[#fff6d1FF]");
+                  }
+                  <img src="${labelImages}" alt="labels">
 
 # **📅 Deadline For 60 marks:** 9th March, 2026 (11:59 pm ⏱️)  
 #  📅 No Deadline For 50 marks  
