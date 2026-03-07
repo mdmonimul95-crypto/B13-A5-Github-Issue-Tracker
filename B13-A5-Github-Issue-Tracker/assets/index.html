@@ -14,9 +14,11 @@
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"   rel="stylesheet">
      <link rel="stylesheet" href="./style.css">
+     
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
   </head>
   <body class="bg-[#f8fafcFF] ">
-    <main id="mainbox" class=" flex justify-center items-center m-10">
+    <main id="mainbox" class="hidden flex justify-center items-center m-10">
       <div class="bg-white w-[520px]  rounded-[8px] gap-[24px] p-[32px] ">
          <div class="flex flex-col justify-center items-center mb-5 ">
          <div class="mb-[24px]">
@@ -70,10 +72,89 @@
       
       </div>
     </main>
-    <section id="dashboard" class="hidden">
-        <nav>
-          <h1>ok babu</h1>
+    <section id="dashboard" class="">
+        <nav class="flex justify-between pl-[80px] pr-[80px] mb-4">
+          <div class="flex justify-between items-center">
+            <img class="w-[36px] p-1" src="./github-logo.png" > 
+            <p class="text-[24px] font-semibold">GitHub Issues Tracker</p>
+
+          </div>
+          <div>
+              <svg xmlns="http://www.w3.org/2000/svg"
+              class="relative left-5 top-7 w-4 h-4 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"/>
+              </svg>
+             <input
+             id="username"
+             
+              type="search" 
+             placeholder= " Search issues..."
+             class="w-[300px] p-[16px] items-center justify-center bg-white pl-10 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-100 mb-1"
+             >
+              <button id="" class=" w-[131px]  bg-[#4a00ffFF] border rounded-md text-white pl-[16px] pr-[16px] pt-[8px] pb-[8px]">
+
+               + New Issue
+              </button>
+          </div>
         </nav>
+        <section class="mt-[60px] ml-[245px] mr-[245px] ">
+          <div class="bg-white p-5 shadow-md rounded-md mb-[24px] ">
+            <button class="btn btn-sm w-[120px] text-white bg-[#4a00ffFF]">All</button>
+            <button class="btn btn-sm w-[120px] bg-white">Open</button>
+            <button class="btn btn-sm w-[120px] bg-white">Closed</button>
+            
+          </div>
+          <div class="bg-white shadow-md p-5 rounded-md mb-[2px] flex justify-between ">
+            <div class="flex items-center ">
+             <img class="bg-[#ECE4FF] w-[50px] h-[50px]  p-2 rounded-full" src="./Aperture.png">
+             <div class="pl-2">
+              <p class="text-[20px] font-semibold">50 Issues</p>
+              <span>Track and manage your project issues</span>
+             </div>
+            </div>
+            <div class="flex ">
+              <div class="flex items-center p-4">
+                <img class="w-[12px] h-[12px]" src="./Ellipse 2.png" alt="ellipe2">
+                <p class="p-3">Open</p>
+              </div>
+              <div class="flex items-center">
+                <img class="w-[12px] h-[12px]" src="./Ellipse 2 (1).png" alt="ellipe1">
+                <p class="p-3">Closed</p>
+              </div>
+            </div>
+
+          </div>
+          <div class=" p-[20px] rounded-md bg-white ">
+              <div class="bg-white w-[257px] p-[16px] shadow-md">
+                <div class="flex justify-between items-center mb-3">
+                  <img src="./Open-Status.png" alt="open-status">
+                  <div class="bg-[#feececFF] p-1 pl-4  pr-4 rounded-2xl">
+                      High
+                  </div>
+                </div>
+                <div class="">
+                  <p class="font-semibold mb-2 text-[14px]">Fix navigation menu on mobile devices</p>
+                  <span class="font-normal mb-2 text-[12px]">The navigation menu doesn't collapse properly on mobile devices...</span>
+                
+                  <div class="flex gap-2 mt-3 ">
+                   <img src="./Labels.png" alt="labels">
+                   <img src="./Labels (1).png" alt="labels1">
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <p>#1 by john_doe</p>
+                  <p>1/15/2024</p>
+                </div>
+
+              </div>
+          </div>
+        </section>
          
         
     </section>
