@@ -1,5 +1,11 @@
 const cardconteiner = document.getElementById("cardconteiner");
 let allProblems = [];
+let allCount = document.getElementById("allcount")
+function calculateCount(){
+
+   allCount.innerText = cardconteiner.children.length;
+};
+
 
 async function problemLode() {
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
@@ -9,7 +15,9 @@ async function problemLode() {
     allProblems = data.data;   // data store
     displayProblem(allProblems);
 }
+
 problemLode()
+
 // const cardconteiner = document.getElementById('cardconteiner');
 // console.log(allcardsection.children.length)
 // const maincontriner = document.querySelector('main')
@@ -96,6 +104,14 @@ function toggleStyle(id){
     //    renderRejected();
     // }
 }
+function openModal(problem){
+
+  document.getElementById("modal-title").innerText = problem.title;
+  document.getElementById("modal-description").innerText = problem.description;
+
+  document.getElementById("my_modal_5").showModal();
+
+}
 function displayProblem(problems){
         cardconteiner.innerHTML = "";
     // console.log(problems);
@@ -138,11 +154,12 @@ function displayProblem(problems){
         
        console.log(problem);
        const card = document.createElement("div");
-       card.className = "bg-white w-[270px] p-[16px] rounded-md shadow-md  border-t-4 ";
-       card.innerHTML = `
+       
+       card.className = "bg-white w-[270px] p-[16px] rounded-md shadow-md  border-t-4 cursor-pointer";
+       card.innerHTML = `<div class="">
                 <div class="flex justify-between items-center mb-3">
                   <img src="${statusImg}">
-                  <div  class="priority bg-[#feececFF] p-1 pl-4  pr-4 rounded-2xl">
+                  <div  class="priority bg-[#f3cece] p-1 pl-4  pr-4 rounded-2xl text-red-500">
                       ${problem.priority}
                   </div>
                 </div>
@@ -159,6 +176,7 @@ function displayProblem(problems){
                   <p>#1 by ${problem.author}</p>
                   <p> ${formattedDate}</p>
                 </div>
+                </div>
 
                  
               `;
@@ -171,22 +189,26 @@ function displayProblem(problems){
                const priorityDiv = card.querySelector(".priority");
 
                if(problem.priority === "medium"){
-                priorityDiv.classList.remove("bg-[#feececFF]");
-                priorityDiv.classList.add("bg-[#fff6d1FF]");
+                priorityDiv.classList.remove("bg-[#feececFF]","text-red-500");
+                priorityDiv.classList.add("bg-[#fff6d1FF]","text-yellow-500");
               
                 }
                  if(problem.priority === "low"){
-                priorityDiv.classList.remove("bg-[#feececFF]");
+                priorityDiv.classList.remove("bg-[#f3cece]","text-red-500");
                 priorityDiv.classList.add("bg-[#eeeff2FF]");
               
                 }
-               
+               card.onclick = () => openModal(problem);
               cardconteiner.appendChild(card);
+              calculateCount();
+              
              
 
     });
 }
  
 problemLode()
+
+
  
 

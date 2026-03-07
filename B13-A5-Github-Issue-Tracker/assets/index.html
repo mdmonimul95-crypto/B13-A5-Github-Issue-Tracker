@@ -75,6 +75,7 @@
     <section id="dashboard" class="">
         <nav class="flex justify-between pl-[80px] pr-[80px] mb-4">
           <div class="flex justify-between items-center">
+           
             <img class="w-[36px] p-1" src="./github-logo.png" > 
             <p class="text-[24px] font-semibold">GitHub Issues Tracker</p>
 
@@ -114,7 +115,8 @@
             <div class="flex items-center ">
              <img class="bg-[#ECE4FF] w-[50px] h-[50px]  p-2 rounded-full" src="./Aperture.png">
              <div class="pl-2">
-              <p class="text-[20px] font-semibold">50 Issues</p>
+
+               <div class="flex gap-3"> <p id="allcount" class="text-[20px] font-semibold">0 </p> <p class="text-[20px] font-semibold">Issues</p></div>
               <span>Track and manage your project issues</span>
              </div>
             </div>
@@ -128,15 +130,32 @@
                 <p class="p-3">Closed</p>
               </div>
             </div>
+            
 
           </div>
           <div id="cardconteiner" class=" p-[20px] rounded-md bg-white grid grid-cols-4 gap-4 ">
+            <!-- Open the modal using ID.showModal() method -->
+            
+        </div>
+       </div>
+
               
-          </div>
-        </section>
+        </div>
+      </section>
          
         
     </section>
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+      <h3 id="modal-title" class="text-lg font-bold">Title here</h3>
+      <p id="modal-description" class="py-4">Description here</p>
+      <div class="modal-action">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+      </div>
+     </div>
+     </dialog>
 
     <script>
       
@@ -156,7 +175,7 @@
      }
 
      });
-
+     
     </script>
     <script src="./script.js"></script>
   </body>
