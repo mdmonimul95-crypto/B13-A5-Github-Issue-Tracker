@@ -1,10 +1,13 @@
 const cardconteiner = document.getElementById("cardconteiner");
+let allProblems = [];
 
 async function problemLode() {
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     // console.log(data);
-    displayProblem(data.data);
+    // displayProblem(data.data);
+    allProblems = data.data;   // data store
+    displayProblem(allProblems);
 }
 problemLode()
 // const cardconteiner = document.getElementById('cardconteiner');
@@ -32,7 +35,19 @@ function toggleStyle(id){
     selected.classList.remove('bg-white','text-black')
     selected.classList.add('bg-[#4a00ffFF]','text-white')
     //  empty.classList.add('hidden')
+       if(id === "all-btn"){
+        displayProblem(allProblems)
+    }
 
+    else if(id === "all-open-btn"){
+        const openProblems = allProblems.filter(p => p.status === "open")
+        displayProblem(openProblems)
+    }
+
+    else if(id === "all-closed-btn"){
+        const closedProblems = allProblems.filter(p => p.status === "closed")
+        displayProblem(closedProblems)
+    }
     // if(id == 'allOpenBtn'){
     //   allcardsection.classList.add('hidden');
     //   rejecteded.classList.add('hidden')
@@ -82,10 +97,12 @@ function toggleStyle(id){
     // }
 }
 function displayProblem(problems){
+        cardconteiner.innerHTML = "";
     // console.log(problems);
     problems.forEach(problem => {
          const statusImg = problem.status === "open"
                  ? "./Open-Status.png" : "./Closed- Status .png";
+                 
 
                  let labelImages = "";
 
@@ -121,7 +138,7 @@ function displayProblem(problems){
         
        console.log(problem);
        const card = document.createElement("div");
-       card.className = "bg-white w-[270px] p-[16px] rounded-md shadow-md";
+       card.className = "bg-white w-[270px] p-[16px] rounded-md shadow-md  border-t-4 ";
        card.innerHTML = `
                 <div class="flex justify-between items-center mb-3">
                   <img src="${statusImg}">
@@ -145,6 +162,11 @@ function displayProblem(problems){
 
                  
               `;
+              if( problem.status === "open"){
+                 card.classList.add("border-green-500");
+                 }  if(problem.status === "closed"){
+                 card.classList.add("border-[#A855F7]");
+                 }
               
                const priorityDiv = card.querySelector(".priority");
 
