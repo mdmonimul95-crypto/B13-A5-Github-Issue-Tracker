@@ -1,17 +1,39 @@
 const cardconteiner = document.getElementById("cardconteiner");
 let allProblems = [];
 let allCount = document.getElementById("allcount")
+ const timeline = document.getElementById("timeline");
+
+  
+
+function toggleLoader(show){
+    const loader = document.getElementById("loader");
+
+    // if(!loader) return;
+
+    if(show){
+      timeline.classList.add("hidden")
+        loader.classList.remove("hidden");
+        cardconteiner.classList.add("hidden")
+    }
+    else{
+       timeline.classList.remove("hidden")
+        loader.classList.add("hidden");
+        cardconteiner.classList.remove("hidden")
+    }
+}
 
 // function calculateCount(){
 //   console.log(cardconteiner.children.length)
 
 //   //  allCount.innerText = cardconteiner.children.length;
-//    
+   
 
 // };
 
 
-async function problemLode() {
+async function problemLode(){
+    toggleLoader(true);
+     await new Promise(r => setTimeout(r,1000));
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     // console.log(data);
@@ -19,11 +41,14 @@ async function problemLode() {
     allProblems = data.data;
     allCount.innerText = data.data.length   // data store
     displayProblem(allProblems);
+    toggleLoader(false);
 }
 async function searchIssues(){
     const searchText = document
         .getElementById("search-input")
         .value;
+    toggleLoader(true);
+     await new Promise(r => setTimeout(r,1000));
 
     const res = await fetch(
         `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`
@@ -35,9 +60,11 @@ async function searchIssues(){
     // displayProblem(data.data);
     allProblems = data.data;   // data store
     displayProblem(allProblems);
+    toggleLoader(false);
 }
 
-problemLode()
+
+// problemLode()
 
 // const cardconteiner = document.getElementById('cardconteiner');
 // console.log(allcardsection.children.length)
@@ -70,64 +97,27 @@ function toggleStyle(id){
     }
 
     else if(id === "all-open-btn"){
-        const openProblems = allProblems.filter(p => p.status === "open")
-        allCount.innerText = openProblems.length
-        displayProblem(openProblems)
+       toggleLoader(true);
+     
+      setTimeout(() => {
+        const openProblems = allProblems.filter(p => p.status === "open");
+        allCount.innerText = openProblems.length;
+        displayProblem(openProblems);
+        toggleLoader(false);
+    }, 500);
     }
 
     else if(id === "all-closed-btn"){
+      toggleLoader(true);
+       setTimeout(() => {
         const closedProblems = allProblems.filter(p => p.status === "closed")
         allCount.innerText = closedProblems.length
         displayProblem(closedProblems)
+         toggleLoader(false);
+         }, 500);
     }
-    // if(id == 'allOpenBtn'){
-    //   allcardsection.classList.add('hidden');
-    //   rejecteded.classList.add('hidden')
-    //   filterSection.classList.remove('hidden')
-    //   // console.log(interRigtotalbox)
-    //   interRigtotalbox.classList.remove('hidden')
-    //   interRigtotalbox.classList.add('flex')
-    //   Righttotalbox.classList.remove('flex')
-    //   Righttotalbox.classList.add('hidden')
-    //    reterRigtotalllbox.classList.remove('flex')
-    //     reterRigtotalllbox.classList.add('hidden')
-        // if( interviewlist.length === 0){
-        //   empty.classList.remove('hidden')
-        //  }
-      // console.log(interRigtotalbox)
-    //   renderInterview()
-    // }else if( id == "all-thriving-btn"){
-    //    allcardsection.classList.remove('hidden')
-    //   filterSection.classList.add('hidden')
-    //   rejecteded.classList.add('hidden')
-    //    Righttotalbox.classList.remove('hidden')
-    //    Righttotalbox.classList.add('flex')
-    //    interRigtotalbox.classList.remove('flex')
-    //    interRigtotalbox.classList.add('hidden')
-    //     reterRigtotalllbox.classList.remove('flex')
-    //     reterRigtotalllbox.classList.add('hidden')
-    //      empty.classList.add('hidden')
-    //     //   if(allcardsection.children.length === 0){
-    //     //   empty.classList.remove('hidden')
-    //     //  }
-
-    // }else if(id=='rejected-thriving-btn'){
-    //     allcardsection.classList.add('hidden')
-    //    filterSection.classList.add('hidden')
-    //    rejecteded.classList.remove('hidden')
-    //    interRigtotalbox.classList.remove('flex')
-    //    interRigtotalbox.classList.add('hidden')
-    //     Righttotalbox.classList.remove('flex')
-    //     Righttotalbox.classList.add('hidden')
-    //     reterRigtotalllbox.classList.add('flex')
-    //     reterRigtotalllbox.classList.remove('hidden')
-    //      empty.classList.add('hidden')
-    //       // if(rejectedlist.length === 0){
-    //       // empty.classList.remove('hidden')
-    //       //  }
-    //    renderRejected();
-    // }
 }
+
 function openModal(problem){
    const statusEl = document.getElementById("statusM");
     statusEl.innerText = problem.status; // Text
@@ -291,7 +281,7 @@ function displayProblem(problems){
     });
 }
  
-problemLode()
+// problemLode()
 
 
  

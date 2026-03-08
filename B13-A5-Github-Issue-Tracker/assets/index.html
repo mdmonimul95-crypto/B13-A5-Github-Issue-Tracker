@@ -1,207 +1,215 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
-      @theme {
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
         --color-clifford: #da373d;
       }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"   rel="stylesheet">
-     <link rel="stylesheet" href="./style.css">
-     
-     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-  </head>
-  <body class="bg-[#f8fafcFF] ">
-    <main id="mainbox" class=" flex justify-center items-center p-10  ">
-      <div class="bg-white w-[520px]  rounded-[8px] gap-[24px] p-[32px]  shadow-2xl">
-         <div class="flex flex-col justify-center items-center mb-5 ">
-         <div class="mb-[24px]">
-            <img src="./github-logo.png">
-         </div>
-         
-         <div class="mb-[4px] text-[24px] font-semibold">
-           GitHub Issues Tracker
-         </div>
-         <span class="text-[#64748bFF] text-[16px] font-normal">
-           Sign in to manage your issues
-         </span>
-         </div>
-         <div class=" mb-5">
-         <label class="block text-black mb-1 font-medium text-[16px]">Username</label>
-         <input
-          id="username"
-         type="text" 
-         placeholder="Enter Username"
-         class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-100 mb-1"
-         >
-        <p class="text-[#4a00ffFF] text-sm mt-1">Default: admin</p>
-         </div>
-         
-         <div class=" mb-5">
-        <label class="block text-black mb-1 font-medium text-[16px]">Password</label>
-        <input 
-         id="password"
-         type="text" 
-         placeholder="Enter Password"
-         class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-100 mb-1"
-        >
-       <p class="text-[#4a00ffFF] text-sm mt-1">Default: admin123</p>
-         </div>
-         <button id="loginForm" class=" mb-5 bg-[#4a00ffFF] w-full border rounded-md text-white p-[16px]">
-             Sign In
-         </button>
-         
-         <div class="flex items-center my-4">
-           <div class="flex-grow border-t  border-blue-400"></div>
-           <span class="mx-3 text-gray-600 font-medium">OR</span>
-           <div class="flex-grow border-t  border-blue-400"></div>
-         </div>
-         <div class="text-center">
-          <p class="text-black mb-2">Demo Credentials:</p>
-           <div class="bg-gray-200  rounded-md p-5">
-            <p class="font-semibold">Username: <span class="font-normal">admin</span></p>
-            <p class="font-semibold">Password: <span class="font-normal">admin123</span></p>
-           </div>
-         </div>
-      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="bg-[#f8fafcFF] ">
+  <main id="mainbox" class=" flex justify-center items-center p-10  ">
+    <div class="bg-white w-[520px]  rounded-[8px] gap-[24px] p-[32px]  shadow-2xl">
+      <div class="flex flex-col justify-center items-center mb-5 ">
+        <div class="mb-[24px]">
+          <img src="./github-logo.png">
+        </div>
+
+        <div class="mb-[4px] text-[24px] font-semibold">
+          GitHub Issues Tracker
+        </div>
+        <span class="text-[#64748bFF] text-[16px] font-normal">
+          Sign in to manage your issues
+        </span>
       </div>
-    </main>
-    <section id="dashboard" class="hidden">
-        <nav class="flex justify-between pl-[80px] pr-[80px] mb-4">
-          <div class="flex justify-between items-center">
-           
-            <img class="w-[36px] p-1" src="./github-logo.png" > 
-            <p class="text-[24px] font-semibold">GitHub Issues Tracker</p>
+      <div class=" mb-5">
+        <label class="block text-black mb-1 font-medium text-[16px]">Username</label>
+        <input id="username" type="text" placeholder="Enter Username"
+          class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-100 mb-1">
+        <p class="text-[#4a00ffFF] text-sm mt-1">Default: admin</p>
+      </div>
 
-          </div>
-          <div>
-              <svg xmlns="http://www.w3.org/2000/svg"
-              class="relative left-5 top-7 w-4 h-4 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"/>
-              </svg>
-             <input
-             id="search-input"
-             
-              type="search" 
-             placeholder= " Search issues..."
-             class="w-[300px] p-[16px] items-center justify-center bg-white pl-10 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-100 mb-1"
-             >
-              <button id="" onclick="searchIssues()" class=" w-[131px]  bg-[#4a00ffFF] border rounded-md text-white pl-[16px] pr-[16px] pt-[8px] pb-[8px]">
+      <div class=" mb-5">
+        <label class="block text-black mb-1 font-medium text-[16px]">Password</label>
+        <input id="password" type="text" placeholder="Enter Password"
+          class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-100 mb-1">
+        <p class="text-[#4a00ffFF] text-sm mt-1">Default: admin123</p>
+      </div>
+      <button id="loginForm" class=" mb-5 bg-[#4a00ffFF] w-full border rounded-md text-white p-[16px]">
+        Sign In
+      </button>
 
-               Search
-              </button>
-          </div>
-        </nav>
-        <section class="mt-[60px] ml-[100px] mr-[100px] ">
-          <div class="bg-white p-5 shadow-md rounded-md mb-[24px] ">
-            <button  onclick="toggleStyle('all-btn')" id="all-btn" class="btn btn-sm w-[120px] text-white bg-[#4a00ffFF]">All</button>
-            <button  onclick="toggleStyle('all-open-btn')"  id="all-open-btn" class="btn btn-sm w-[120px] bg-white">Open</button>
-            <button  onclick="toggleStyle('all-closed-btn')"  id="all-closed-btn" class="btn btn-sm w-[120px] bg-white">Closed</button>
-            
-          </div>
-          <div class="bg-white shadow-md p-5 rounded-md mb-[2px] flex justify-between ">
-            <div class="flex items-center ">
-             <img class="bg-[#ECE4FF] w-[50px] h-[50px]  p-2 rounded-full" src="./Aperture.png">
-             <div class="pl-2">
-
-               <div class="flex gap-3"> <p id="allcount" class="text-[20px] font-semibold">0 </p> <p class="text-[20px] font-semibold">Issues</p></div>
-              <span>Track and manage your project issues</span>
-             </div>
-            </div>
-            <div class="flex ">
-              <div class="flex items-center p-4">
-                <img class="w-[12px] h-[12px]" src="./Ellipse 2.png" alt="ellipe2">
-                <p class="p-3">Open</p>
-              </div>
-              <div class="flex items-center">
-                <img class="w-[12px] h-[12px]" src="./Ellipse 2 (1).png" alt="ellipe1">
-                <p class="p-3">Closed</p>
-              </div>
-            </div>
-            
-
-          </div>
-          <div id="cardconteiner" class=" p-[20px] rounded-md bg-white grid grid-cols-4 gap-4 ">
-            <!-- Open the modal using ID.showModal() method -->
-            
+      <div class="flex items-center my-4">
+        <div class="flex-grow border-t  border-blue-400"></div>
+        <span class="mx-3 text-gray-600 font-medium">OR</span>
+        <div class="flex-grow border-t  border-blue-400"></div>
+      </div>
+      <div class="text-center">
+        <p class="text-black mb-2">Demo Credentials:</p>
+        <div class="bg-gray-200  rounded-md p-5">
+          <p class="font-semibold">Username: <span class="font-normal">admin</span></p>
+          <p class="font-semibold">Password: <span class="font-normal">admin123</span></p>
         </div>
-       </div>
+      </div>
 
-              
-        </div>
-      </section>
-         
+    </div>
+  </main>
+  <section id="dashboard" class="hidden">
+    <nav class="flex justify-between pl-[80px] pr-[80px] mb-4">
+      <div class="flex justify-between items-center">
+
+        <img class="w-[36px] p-1" src="./github-logo.png">
+        <p class="text-[24px] font-semibold">GitHub Issues Tracker</p>
+
+      </div>
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="relative left-5 top-7 w-4 h-4 text-gray-400" fill="none"
+          stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z" />
+        </svg>
+        <input id="search-input" type="search" placeholder=" Search issues..."
+          class="w-[300px] p-[16px] items-center justify-center bg-white pl-10 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-100 mb-1">
+        <button id="" onclick="searchIssues()"
+          class=" w-[131px]  bg-[#4a00ffFF] border rounded-md text-white pl-[16px] pr-[16px] pt-[8px] pb-[8px]">
+
+          Search
+        </button>
+      </div>
+    </nav>
+    <section class="mt-[60px] ml-[100px] mr-[100px] ">
+      <div class="bg-white p-5 shadow-md rounded-md mb-[24px] ">
+        <button onclick="toggleStyle('all-btn')" id="all-btn"
+          class="btn btn-sm w-[120px] text-white bg-[#4a00ffFF]">All</button>
+        <button onclick="toggleStyle('all-open-btn')" id="all-open-btn"
+          class="btn btn-sm w-[120px] bg-white">Open</button>
+        <button onclick="toggleStyle('all-closed-btn')" id="all-closed-btn"
+          class="btn btn-sm w-[120px] bg-white">Closed</button>
+
+      </div>
+      <!-- <div  id="loader" class="flex justify-center my-10 hidden">
+                 <span class="loading loading-spinner loading-lg text-purple-600"></span>
+                </div> -->
+                <div  id="loader" class=" hidden flex justify-center  items-center mx-auto border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />
+      <div id="timeline" class="bg-white shadow-md p-5 rounded-md mb-[2px] flex justify-between ">
         
+        <div  class="flex items-center ">
+          <img class="bg-[#ECE4FF] w-[50px] h-[50px]  p-2 rounded-full" src="./Aperture.png">
+          <div class="pl-2">
+
+            <div class="flex gap-3">
+              <p id="allcount" class="text-[20px] font-semibold">0 </p>
+              <p class="text-[20px] font-semibold">Issues</p>
+            </div>
+            <span>Track and manage your project issues</span>
+          </div>
+        </div>
+
+        <div  class="flex ">
+
+          <div class="flex items-center p-4">
+            <img class="w-[12px] h-[12px]" src="./Ellipse 2.png" alt="ellipe2">
+            <p class="p-3">Open</p>
+          </div>
+          <div class="flex items-center">
+            <img class="w-[12px] h-[12px]" src="./Ellipse 2 (1).png" alt="ellipe1">
+            <p class="p-3">Closed</p>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="cardconteiner" class=" p-[20px] rounded-md bg-white grid grid-cols-4 gap-4 ">
+        <!-- Open the modal using ID.showModal() method -->
+
+
+
+
+      </div>
+      </div>
+
+
+      </div>
     </section>
-    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-      <div class="modal-box">
+
+
+  </section>
+  <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
       <h3 id="modal-title" class="text-lg font-bold mb-3">Title here</h3>
       <div class="flex items-center">
-       <div id="statusM" class="bg-green-300 w-13 pl-2 rounded-2xl ">
-        open 
-       </div>
-       <div class="flex items-center text-sm gap-1">
-        <p class="text-xs ml-2 mr-2 "><div class="w-1 h-1 bg-slate-500 rounded-full "> </div> Opened by</p>
-       <p id="openby" class="text-sm">  fahim ahmed</p>
-       </div>
-       <div class="flex items-center gap-1 ml-2">
-          <div class="w-1 h-1 bg-slate-500 rounded-full items-center "></div><p id="dateM" class="text-sm  mr-2 flex ">date</p>
-       </div>
+        <div id="statusM" class="bg-green-300 w-13 pl-2 rounded-2xl ">
+          open
+        </div>
+        <div class="flex items-center text-sm gap-1">
+          <p class="text-xs ml-2 mr-2 ">
+          <div class="w-1 h-1 bg-slate-500 rounded-full "> </div> Opened by</p>
+          <p id="openby" class="text-sm"> fahim ahmed</p>
+        </div>
+        <div class="flex items-center gap-1 ml-2">
+          <div class="w-1 h-1 bg-slate-500 rounded-full items-center "></div>
+          <p id="dateM" class="text-sm  mr-2 flex ">date</p>
+        </div>
       </div>
       <div id="levelM" class="flex  gap-2 mt-3 ">
         lavel
       </div>
       <p id="modal-description" class="py-4 text-sm font-medium">Description here</p>
       <div class="flex bg-slate-100 rounded-sm p-3 ">
-       <div class="flex-1 justify-center items-center">
-         <p class="text-sm ml-3 font-medium">Assignee:</p>
-         <p id="AssigneeM" class="text-xl font-semibold">  fahim ahmed</p>
-       </div>
-       <div class="flex-1 items-center gap-2">
-         <p class="text-sm  font-medium mb-2">Priority:</p>
-         <p id="priorityM" class="text-sm ml-2 font-semibold text-sm "> high </p>
-       </div>
+        <div class="flex-1 justify-center items-center">
+          <p class="text-sm ml-3 font-medium">Assignee:</p>
+          <p id="AssigneeM" class="text-xl font-semibold"> fahim ahmed</p>
+        </div>
+        <div class="flex-1 items-center gap-2">
+          <p class="text-sm  font-medium mb-2">Priority:</p>
+          <p id="priorityM" class="text-sm ml-2 font-semibold text-sm "> high </p>
+        </div>
       </div>
       <div class="modal-action">
-      <form method="dialog">
-        <button class="btn bg-blue-500 text-white font-medium">Close</button>
-      </form>
+        <form method="dialog">
+          <button class="btn bg-blue-500 text-white font-medium">Close</button>
+        </form>
       </div>
-     </div>
-     </dialog>
+    </div>
+  </dialog>
 
-    <script>
-      
-      document.getElementById("loginForm").addEventListener("click", function(e){
+  <script>
 
-     e.preventDefault();
+    document.getElementById("loginForm").addEventListener("click", function (e) {
 
-     const username = document.getElementById("username").value;
-     const password = document.getElementById("password").value;
-     
+      e.preventDefault();
 
-     if(username === "admin" && password === "admin123"){
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+
+      if (username === "admin" && password === "admin123") {
         document.getElementById("mainbox").classList.add("hidden");
         document.getElementById("dashboard").classList.remove("hidden");
-     }else{
+        problemLode()
+      } else {
         alert("Wrong Username or Password");
-     }
+      }
 
-     });
-     
-    </script>
-    <script src="./script.js"></script>
-  </body>
+    });
+
+  </script>
+  <script src="./script.js"></script>
+</body>
+
 </html>
