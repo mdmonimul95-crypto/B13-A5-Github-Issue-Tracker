@@ -147,11 +147,36 @@
     </section>
     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
       <div class="modal-box">
-      <h3 id="modal-title" class="text-lg font-bold">Title here</h3>
-      <p id="modal-description" class="py-4">Description here</p>
+      <h3 id="modal-title" class="text-lg font-bold mb-3">Title here</h3>
+      <div class="flex items-center">
+       <div id="statusM" class="bg-green-300 w-13 pl-2 rounded-2xl ">
+        open 
+       </div>
+       <div class="flex items-center text-sm gap-1">
+        <p class="text-xs ml-2 mr-2 "><div class="w-1 h-1 bg-slate-500 rounded-full "> </div> Opened by</p>
+       <p id="openby" class="text-sm">  fahim ahmed</p>
+       </div>
+       <div class="flex items-center gap-1 ml-2">
+          <div class="w-1 h-1 bg-slate-500 rounded-full items-center "></div><p id="dateM" class="text-sm  mr-2 flex ">date</p>
+       </div>
+      </div>
+      <div id="levelM" class="flex  gap-2 mt-3 ">
+        lavel
+      </div>
+      <p id="modal-description" class="py-4 text-sm font-medium">Description here</p>
+      <div class="flex bg-slate-100 rounded-sm p-3 ">
+       <div class="flex-1 justify-center items-center">
+         <p class="text-sm ml-3 font-medium">Assignee:</p>
+         <p id="AssigneeM" class="text-xl font-semibold">  fahim ahmed</p>
+       </div>
+       <div class="flex-1 items-center gap-2">
+         <p class="text-sm  font-medium mb-2">Priority:</p>
+         <p id="priorityM" class="text-sm ml-2 font-semibold text-sm "> high </p>
+       </div>
+      </div>
       <div class="modal-action">
       <form method="dialog">
-        <button class="btn">Close</button>
+        <button class="btn bg-blue-500 text-white font-medium">Close</button>
       </form>
       </div>
      </div>

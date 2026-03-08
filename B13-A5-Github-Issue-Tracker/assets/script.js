@@ -105,11 +105,61 @@ function toggleStyle(id){
     // }
 }
 function openModal(problem){
+   const statusEl = document.getElementById("statusM");
+    statusEl.innerText = problem.status; // Text
 
+    // Class assignment based on status
+    if(problem.status === "open"){
+        statusEl.className = "text-green-600 font-semibold bg-green-100 px-2  rounded-full";
+    } else {
+        statusEl.className = "text-red-600 font-semibold bg-red-100 px-2  rounded-full";
+    }
+   let labelImages = "";
+
+    if(problem.labels && problem.labels.length > 0){
+        problem.labels.forEach(label => {
+            if(label === "bug"){
+                labelImages += `<img src="./bug.png" alt="bug">`;
+            } else if(label === "help wanted"){
+                labelImages += `<img src="./help.png" alt="help">`;
+            } else if(label === "enhancement"){
+                labelImages += `<img src="./enhancement.png" alt="label">`;
+            } else if(label === "good first issue"){
+                labelImages += `<p class="rounded-xl pl-1 line-clamp-1 bg-fuchsia-400">good first issue</p>`;
+            } else if(label === "documentation"){
+                labelImages += `<p class="rounded-xl pl-1 pr-1 bg-yellow-800 text-cyan-50">documentation</p>`;
+            }
+        });
+          } else {
+        labelImages = `<img src="./default.png" alt="label">`;
+    }
+
+   document.getElementById("levelM").innerHTML = labelImages;
   document.getElementById("modal-title").innerText = problem.title;
   document.getElementById("modal-description").innerText = problem.description;
+  document.getElementById("openby").innerText = problem.author;
+  document.getElementById("AssigneeM").innerText = problem.assignee;
+  const date = new Date(problem.createdAt);
+
+  document.getElementById("dateM").innerText = date.toLocaleString();
+
+    const priorityEl = document.getElementById("priorityM");
+    priorityEl.innerText = problem.priority;
+
+    // Priority color based on level
+    if(problem.priority === "high"){
+        priorityEl.className = " w-15 pl-3 py-1  rounded-full font-semibold bg-red-100 text-red-500 ";
+    } else if(problem.priority === "medium"){
+        priorityEl.className = "w-20 px-2 py-1 rounded-full font-semibold bg-yellow-100 text-yellow-500";
+    } else if(problem.priority === "low"){
+        priorityEl.className = "w-12 px-2 py-1 rounded-full font-semibold bg-gray-300";
+    }
+   
+
+ 
 
   document.getElementById("my_modal_5").showModal();
+  // document.getElementById("levelM").innerText =labelImages;
 
 }
 function displayProblem(problems){
@@ -151,6 +201,8 @@ function displayProblem(problems){
                  }
                  const date = new Date(problem.updatedAt);
                  const formattedDate = date.toLocaleDateString();
+                 const idate = new Date(problem.createdAt);
+                 const formattediDate = idate.toLocaleDateString();
         
        console.log(problem);
        const card = document.createElement("div");
@@ -163,7 +215,7 @@ function displayProblem(problems){
                       ${problem.priority}
                   </div>
                 </div>
-                <div class="">
+                <div class="mb-4">
                   <p class="font-semibold line-clamp-1 mb-2 text-[14px]">${problem.title}</p>
                   <span class="font-normal line-clamp-2 mb-2 text-[12px]">${problem.description}</span>
                 
@@ -172,9 +224,17 @@ function displayProblem(problems){
                    
                   </div>
                 </div>
+                <div class="border-t w-full"></div>
                 <div class="mt-3">
-                  <p>#1 by ${problem.author}</p>
-                  <p> ${formattedDate}</p>
+                   <div class="flex justify-between">
+                    <p class="text-xs"># ${problem.id} by ${problem.author}</p>
+                    <p class="text-xs"> ${formattediDate}</p>
+                   </div>
+                   <div class="flex justify-between">
+                    <p class="text-xs"> Assignee : ${problem.assignee}</p>
+                    <p class="text-xs">Updated : ${formattedDate}</p>
+                   </div>
+                  
                 </div>
                 </div>
 
