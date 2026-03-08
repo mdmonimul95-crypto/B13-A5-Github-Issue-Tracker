@@ -18,8 +18,8 @@
      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
   </head>
   <body class="bg-[#f8fafcFF] ">
-    <main id="mainbox" class="hidden flex justify-center items-center m-10">
-      <div class="bg-white w-[520px]  rounded-[8px] gap-[24px] p-[32px] ">
+    <main id="mainbox" class=" flex justify-center items-center p-10  ">
+      <div class="bg-white w-[520px]  rounded-[8px] gap-[24px] p-[32px]  shadow-2xl">
          <div class="flex flex-col justify-center items-center mb-5 ">
          <div class="mb-[24px]">
             <img src="./github-logo.png">
@@ -72,7 +72,7 @@
       
       </div>
     </main>
-    <section id="dashboard" class="">
+    <section id="dashboard" class="hidden">
         <nav class="flex justify-between pl-[80px] pr-[80px] mb-4">
           <div class="flex justify-between items-center">
            
@@ -92,15 +92,15 @@
               d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"/>
               </svg>
              <input
-             id="username"
+             id="search-input"
              
               type="search" 
              placeholder= " Search issues..."
              class="w-[300px] p-[16px] items-center justify-center bg-white pl-10 border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-100 mb-1"
              >
-              <button id="" class=" w-[131px]  bg-[#4a00ffFF] border rounded-md text-white pl-[16px] pr-[16px] pt-[8px] pb-[8px]">
+              <button id="" onclick="searchIssues()" class=" w-[131px]  bg-[#4a00ffFF] border rounded-md text-white pl-[16px] pr-[16px] pt-[8px] pb-[8px]">
 
-               + New Issue
+               Search
               </button>
           </div>
         </nav>

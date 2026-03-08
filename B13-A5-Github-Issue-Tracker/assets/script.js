@@ -1,16 +1,37 @@
 const cardconteiner = document.getElementById("cardconteiner");
 let allProblems = [];
 let allCount = document.getElementById("allcount")
-function calculateCount(){
 
-   allCount.innerText = cardconteiner.children.length;
-};
+// function calculateCount(){
+//   console.log(cardconteiner.children.length)
+
+//   //  allCount.innerText = cardconteiner.children.length;
+//    
+
+// };
 
 
 async function problemLode() {
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const data = await res.json();
     // console.log(data);
+    // displayProblem(data.data);
+    allProblems = data.data;
+    allCount.innerText = data.data.length   // data store
+    displayProblem(allProblems);
+}
+async function searchIssues(){
+    const searchText = document
+        .getElementById("search-input")
+        .value;
+
+    const res = await fetch(
+        `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`
+    );
+
+    const data = await res.json();
+    allCount.innerText = data.data.length
+
     // displayProblem(data.data);
     allProblems = data.data;   // data store
     displayProblem(allProblems);
@@ -44,16 +65,19 @@ function toggleStyle(id){
     selected.classList.add('bg-[#4a00ffFF]','text-white')
     //  empty.classList.add('hidden')
        if(id === "all-btn"){
+        allCount.innerText = allProblems.length
         displayProblem(allProblems)
     }
 
     else if(id === "all-open-btn"){
         const openProblems = allProblems.filter(p => p.status === "open")
+        allCount.innerText = openProblems.length
         displayProblem(openProblems)
     }
 
     else if(id === "all-closed-btn"){
         const closedProblems = allProblems.filter(p => p.status === "closed")
+        allCount.innerText = closedProblems.length
         displayProblem(closedProblems)
     }
     // if(id == 'allOpenBtn'){
@@ -204,7 +228,7 @@ function displayProblem(problems){
                  const idate = new Date(problem.createdAt);
                  const formattediDate = idate.toLocaleDateString();
         
-       console.log(problem);
+      //  console.log(problem);
        const card = document.createElement("div");
        
        card.className = "bg-white w-[270px] p-[16px] rounded-md shadow-md  border-t-4 cursor-pointer";
@@ -260,7 +284,7 @@ function displayProblem(problems){
                 }
                card.onclick = () => openModal(problem);
               cardconteiner.appendChild(card);
-              calculateCount();
+              // calculateCount();
               
              
 
