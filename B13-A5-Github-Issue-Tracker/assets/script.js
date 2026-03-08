@@ -92,8 +92,16 @@ function toggleStyle(id){
     selected.classList.add('bg-[#4a00ffFF]','text-white')
     //  empty.classList.add('hidden')
        if(id === "all-btn"){
-        allCount.innerText = allProblems.length
+         toggleLoader(true);
+     
+      setTimeout(() => {
+        
+         allCount.innerText = allProblems.length
         displayProblem(allProblems)
+        
+        toggleLoader(false);
+    }, 500);
+       
     }
 
     else if(id === "all-open-btn"){
